@@ -8,13 +8,7 @@ services:
     ports:
       - ${LDAP_PORT:-389}:1389
       - ${LDAPS_PORT:-636}:1636
-    environment:
-      - LDAP_ADMIN_USERNAME=ldapadmin
-      - LDAP_ADMIN_PASSWORD=jLMz-3qGf-qOkK-HjHv-tapl-0eqr
-      - LDAP_ROOT=dc=ldap,dc=wings
-      - LDAP_ADMIN_DN=cn=ldapadmin,dc=ldap,dc=wings
-      - LDAP_USERS=ldapuser
-      - LDAP_PASSWORDS=jLMz-3qGf-qOkK-HjHv-tapl-0eqr
+    env_file: .env
     volumes:
       - './data/ldap:/bitnami/openldap'
 
